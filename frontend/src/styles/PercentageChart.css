@@ -1,0 +1,21 @@
+.chart-container {
+    position: relative
+    max-width: 400px;
+}
+.center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: bold;
+    color: #5a7a4d;
+}
+@media (width < 700px) {
+    .chart-container {
+        margin-top: 62px;
+    }
+    .center-text {
+        transform: translate(-50%, 0%);
+    }
+}

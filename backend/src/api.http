@@ -1,0 +1,27 @@
+### LLamado de SP para traer toda la informacion
+GET http://localhost:3000/paseo
+
+### Llamado de SP para guardar una persona en la DB
+POST http://localhost:3000/paseo
+Content-Type: application/json
+
+{
+    "pernom": "Prueba JSON",
+    "percel": "3107400953",
+    "pervalpagar": 280500,
+    "pervalpagado": 0,
+    "perbus": "0",
+    "perestado": "N"
+}
+
+### Actualizar la información de una persona
+PATCH  http://localhost:3000/paseo/2
+Content-Type: application/json
+
+{
+    "pervalpagado": 200000,
+    "perestado": "F"
+}
+
+### Eliminar una persona
+DELETE http://localhost:3000/paseo/15
