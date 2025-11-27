@@ -3,7 +3,8 @@ import cors from 'cors'
 export const corsMiddleware = () => cors({
     origin: (origin, callback) => {
         const ACCEPTED_ORIGINS = [
-            'http://localhost:5173'
+            'http://localhost:5173',
+            'https://paseo-pagos.up.railway.app/paseo'
         ]
 
         if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
