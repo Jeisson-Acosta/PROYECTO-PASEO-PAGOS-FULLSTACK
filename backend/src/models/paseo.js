@@ -1,8 +1,9 @@
 import mysql from 'mysql2/promise'
 import dotenv from 'dotenv'
 dotenv.config()
+
 // Configuración por defecto de la APP
-const DEFAULT_CONFIG = {
+/* const DEFAULT_CONFIG = {
     host: 'localhost',
     user: 'root',
     port: 3306,
@@ -10,9 +11,23 @@ const DEFAULT_CONFIG = {
     database: 'paseoFamilia'
 }
 
-console.log(process.env.MYSQL_URL)
-const connectionString = process.env.MYSQL_URL ?? DEFAULT_CONFIG
-const connection = await mysql.createConnection(connectionString)
+const connectionString = process.env.MYSQL_URL ?? DEFAULT_CONFIG */
+const {
+  MYSQLHOST,
+  MYSQLPORT,
+  MYSQLUSER,
+  MYSQLPASSWORD,
+  MYSQLDATABASE
+} = process.env;
+
+const CONFIG_DB = {
+    host: MYSQLHOST,
+    user: MYSQLUSER,
+    port: MYSQLPORT,
+    password: MYSQLPASSWORD,
+    database: MYSQLDATABASE
+}
+const connection = await mysql.createConnection(CONFIG_DB)
 
 export class PaseoModel {
     static async getAllInfo() {
@@ -45,6 +60,7 @@ export class PaseoModel {
             return person[0]
             
         } catch(err) {
+            console.log(err) 
             throw new Error('Error creating person in the DB')
         }
     }
