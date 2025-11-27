@@ -3,23 +3,15 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 // Configuración por defecto de la APP
-/* const DEFAULT_CONFIG = {
+const DEFAULT_CONFIG = {
     host: 'localhost',
     user: 'root',
     port: 3306,
     password: 'Agil',
     database: 'paseoFamilia'
-} */
-
-const CONFIG_DB = {
-    host: process.env.DB_HOST || 'localhost',
-    user: process.env.DB_USER || 'root',
-    port: process.env.DB_PORT || 3306,
-    password: process.env.DB_PASSWORD || 'Agil',
-    database: process.env.DB_NAME || 'paseoFamilia'
 }
 
-const connectionString = CONFIG_DB
+const connectionString = process.env.MYSQL_URL || CONFIG_DB
 const connection = await mysql.createConnection(connectionString)
 
 export class PaseoModel {
