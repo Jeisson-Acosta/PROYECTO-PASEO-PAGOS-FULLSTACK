@@ -4,7 +4,8 @@ export const corsMiddleware = () => cors({
     origin: (origin, callback) => {
         const ACCEPTED_ORIGINS = [
             'http://localhost:5173',
-            'https://paseo-pagos.up.railway.app/paseo'
+            'https://paseo-pagos.up.railway.app/paseo',
+            'https://paseo-pagos.netlify.app/'
         ]
 
         if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
