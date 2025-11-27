@@ -9,25 +9,18 @@ dotenv.config()
     port: 3306,
     password: 'Agil',
     database: 'paseoFamilia'
-}
-
-const connectionString = process.env.MYSQL_URL ?? DEFAULT_CONFIG */
-const {
-  MYSQLHOST,
-  MYSQLPORT,
-  MYSQLUSER,
-  MYSQLPASSWORD,
-  MYSQLDATABASE
-} = process.env;
+} */
 
 const CONFIG_DB = {
-    host: MYSQLHOST,
-    user: MYSQLUSER,
-    port: MYSQLPORT,
-    password: MYSQLPASSWORD,
-    database: MYSQLDATABASE
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'root',
+    port: process.env.DB_PORT || 3306,
+    password: process.env.DB_PASSWORD || 'Agil',
+    database: process.env.DB_NAME || 'paseoFamilia'
 }
-const connection = await mysql.createConnection(CONFIG_DB)
+
+const connectionString = CONFIG_DB
+const connection = await mysql.createConnection(connectionString)
 
 export class PaseoModel {
     static async getAllInfo() {
