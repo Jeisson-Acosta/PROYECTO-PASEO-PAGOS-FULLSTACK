@@ -1,15 +1,17 @@
 import mysql from 'mysql2/promise'
-
+import dotenv from 'dotenv'
+dotenv.config()
 // Configuración por defecto de la APP
 const DEFAULT_CONFIG = {
     host: 'localhost',
     user: 'root',
-    port: 3307,
-    password: '',
+    port: 3306,
+    password: 'Agil',
     database: 'paseoFamilia'
 }
 
-const connectionString = process.env.DATABASE_URL ?? DEFAULT_CONFIG
+console.log(process.env.MYSQL_URL)
+const connectionString = process.env.MYSQL_URL ?? DEFAULT_CONFIG
 const connection = await mysql.createConnection(connectionString)
 
 export class PaseoModel {
