@@ -1,5 +1,5 @@
 export const getAllInfo = async (setAllInfo) => {
-    const response = await fetch('http://localhost:3000/paseo')
+    const response = await fetch('https://paseo-pagos.up.railway.app/paseo')
     const data = await response.json()
     setAllInfo(data)
 }

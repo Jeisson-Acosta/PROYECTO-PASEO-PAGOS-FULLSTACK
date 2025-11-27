@@ -23,7 +23,7 @@ export function AddPerson({ data }) {
     const handleSubmit = async (e) => {
         e.preventDefault()
         closeModal()
-        await fetch('http://localhost:3000/paseo' + (data ? '/' + data.perid : ''), {
+        await fetch('https://paseo-pagos.up.railway.app/paseo' + (data ? '/' + data.perid : ''), {
             method: data ? 'PATCH' : 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -66,8 +66,6 @@ export function AddPerson({ data }) {
             })
         }
     }
-
-    console.log(formData)
 
     return (
         <div className="modal-addPerson">

@@ -54,7 +54,7 @@ export function TableUsers() {
 
   const handleDelete = async (id) => {
     if (window.confirm('¿Estas seguro de eliminar este registro?')) {
-      await fetch(`http://localhost:3000/paseo/${id}`, {
+      await fetch(`https://paseo-pagos.up.railway.app/paseo/${id}`, {
         method: 'DELETE'
       })
       getAllInfo(setAllInfo)
